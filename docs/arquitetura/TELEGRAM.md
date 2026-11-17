@@ -2,10 +2,7 @@
 
 ## Por que MTProto
 
-O projeto precisa de arquivos de até 2 GB e de streaming. A API oficial de bots
-limita o download a ~20 MB e o upload a ~50 MB, o que inviabiliza vídeo. Por
-isso o acesso é feito por **MTProto**, com uma **conta dedicada**, usando
-Telethon. Bot não é usado no MVP.
+O projeto precisa de arquivos de até 2 GB e de streaming. A API oficial de bots limita o download a ~20 MB e o upload a ~50 MB, o que inviabiliza vídeo. Por isso o acesso é feito por **MTProto**, com uma **conta dedicada**, usando Telethon. Bot não é usado no MVP.
 
 | Recurso | Bot API | MTProto (conta) |
 |---|---|---|
@@ -19,8 +16,7 @@ Telethon. Bot não é usado no MVP.
 
 - Conta **dedicada** ao drive, distinta da conta pessoal.
 - `api_id` e `api_hash` obtidos em `my.telegram.org` para essa conta.
-- Sessão do Telethon em arquivo local (`TELEGRAM_SESSION_PATH`), **nunca**
-  versionado.
+- Sessão do Telethon em arquivo local (`TELEGRAM_SESSION_PATH`), **nunca** versionado.
 - O arquivo de sessão equivale a uma senha: quem o tiver controla a conta.
 - A conta é dona do canal privado usado como armazenamento.
 
@@ -29,8 +25,7 @@ Telethon. Bot não é usado no MVP.
 - **Um canal privado único**, sem tópicos.
 - O canal não é público e não tem link de convite divulgado.
 - A navegação não acontece dentro do Telegram: a interface é a web.
-- A conta que faz os uploads manuais é a mesma usada pelo app. Isso permite
-  editar as legendas próprias sem depender de permissões de terceiros.
+- A conta que faz os uploads manuais é a mesma usada pelo app. Isso permite editar as legendas próprias sem depender de permissões de terceiros.
 
 ### Por que não usar tópicos ou grupos
 
@@ -55,16 +50,13 @@ Cada arquivo é uma mensagem com documento. O catálogo guarda:
 1. Guardar as coordenadas da mensagem.
 2. Ao ler ou baixar, resolver a referência a partir da mensagem.
 3. Se a referência falhar, refazer a consulta e atualizar o catálogo.
-4. Se a mensagem não existir mais, marcar o arquivo como `missing` — **nunca
-   apagar o registro automaticamente**.
+4. Se a mensagem não existir mais, marcar o arquivo como `missing` — **nunca apagar o registro automaticamente**.
 
-O `file_id` da Bot API não é usado como identidade: ele é específico do bot e
-não serve para uma conta MTProto.
+O `file_id` da Bot API não é usado como identidade: ele é específico do bot e não serve para uma conta MTProto.
 
 ## Upload e escrita
 
-- **Upload é manual**, pelo app oficial do Telegram. O app não automatiza envio
-  de arquivos no MVP.
+- **Upload é manual**, pelo app oficial do Telegram. O app não automatiza envio de arquivos no MVP.
 - O app **lê** o canal para descobrir uploads novos.
 - O app **escreve** apenas:
   - a legenda/manifesto ao organizar;
@@ -85,17 +77,13 @@ O risco não vem do volume armazenado, e sim do **comportamento**:
 | Encaminhamento em massa ou spam | alto |
 | Canal público para distribuir conteúdo | alto |
 
-Doze episódios de 600 MB por semana (~7 GB/semana, ~31 GB/mês) não são um padrão
-de abuso. O que deve ser evitado é automação em massa, muitos envios por minuto
-e compartilhamento público.
+Doze episódios de 600 MB por semana (~7 GB/semana, ~31 GB/mês) não são um padrão de abuso. O que deve ser evitado é automação em massa, muitos envios por minuto e compartilhamento público.
 
 ## Compressão e formatos
 
 - O Telegram **não reencoda no servidor**; ele armazena o que foi enviado.
-- A compressão acontece no **cliente oficial**, quando o envio é feito como
-  “vídeo”. Enviar como **arquivo** preserva os bytes originais.
-- MKV enviado como vídeo pode ser convertido ou enviado como arquivo, dependendo
-  da plataforma. Para garantir, envie como **arquivo**.
+- A compressão acontece no **cliente oficial**, quando o envio é feito como “vídeo”. Enviar como **arquivo** preserva os bytes originais.
+- MKV enviado como vídeo pode ser convertido ou enviado como arquivo, dependendo da plataforma. Para garantir, envie como **arquivo**.
 - Legendas embutidas só sobrevivem se o arquivo for enviado sem conversão.
 - O player do Telegram não lê faixas embutidas; o nosso player lê.
 
@@ -123,8 +111,7 @@ Regras:
 
 ## Rate limit e resiliência
 
-- Erros `FloodWait` são tratados com espera e retry, nunca com novas tentativas
-  imediatas.
+- Erros `FloodWait` são tratados com espera e retry, nunca com novas tentativas imediatas.
 - Downloads são serializados por padrão; paralelismo é otimização, não regra.
 - Toda chamada tem timeout e log sem segredos.
 - O app deve continuar navegável quando o Telegram estiver indisponível.
@@ -139,8 +126,7 @@ Se o banco for perdido:
 4. Arquivos sem manifesto vão para o Inbox.
 5. Nenhum byte é baixado nesse processo.
 
-O manifesto é o que torna o catálogo descartável. Por isso ele é gravado assim
-que o arquivo é organizado.
+O manifesto é o que torna o catálogo descartável. Por isso ele é gravado assim que o arquivo é organizado.
 
 ## Segurança
 
@@ -148,5 +134,4 @@ que o arquivo é organizado.
 - Logs nunca imprimem `api_hash`, sessão ou conteúdo de mensagens.
 - O canal não é divulgado.
 - O app não aceita caminho de arquivo do usuário; só identificadores do catálogo.
-- Excluir mensagem é a única operação destrutiva e só ocorre no esvaziamento da
-  lixeira.
+- Excluir mensagem é a única operação destrutiva e só ocorre no esvaziamento da lixeira.

@@ -3,8 +3,7 @@
 ## Árvore virtual
 
 - A raiz é única e não pode ser renomeada nem excluída.
-- Pastas têm `id`, `parent_id` e `name`; o caminho é calculado, não armazenado
-  como verdade.
+- Pastas têm `id`, `parent_id` e `name`; o caminho é calculado, não armazenado como verdade.
 - Nomes são únicos por pasta, sem diferenciar maiúsculas/minúsculas.
 - O caminho exibido é `Raiz / Filmes / Série / Temporada`.
 - A ordem padrão é: pastas primeiro, depois arquivos, ambos por nome ascendente.
@@ -27,10 +26,8 @@
 ## Renomear
 
 - Renomear pasta ou arquivo é local.
-- Para arquivo, a legenda é atualizada depois, de forma assíncrona ao fluxo do
-  usuário (com estado de sincronização).
-- Se a atualização da legenda falhar, o catálogo permanece correto e o item fica
-  marcado como “manifesto pendente”.
+- Para arquivo, a legenda é atualizada depois, de forma assíncrona ao fluxo do usuário (com estado de sincronização).
+- Se a atualização da legenda falhar, o catálogo permanece correto e o item fica marcado como “manifesto pendente”.
 
 ## Mover
 
@@ -42,8 +39,7 @@
 ## Excluir pasta
 
 - Só é permitido excluir pasta vazia.
-- Se houver conteúdo, a interface oferece mover o conteúdo para a lixeira ou
-  cancelar.
+- Se houver conteúdo, a interface oferece mover o conteúdo para a lixeira ou cancelar.
 - Excluir pasta não apaga mensagens no Telegram.
 
 ## Estados
@@ -60,8 +56,7 @@
 
 - Navegação por `folder_id`, não por caminho.
 - A resposta inclui `folder`, `breadcrumbs`, `items` e `inbox_count`.
-- Cada item inclui `id`, `name`, `kind`, `icon`, `size`, `modified_at`,
-  `status`, `in_trash`.
+- Cada item inclui `id`, `name`, `kind`, `icon`, `size`, `modified_at`, `status`, `in_trash`.
 - Ações usam `file_id`/`folder_id` e corpo JSON.
 - Nunca aceitar `path` absoluto ou relativo do cliente.
 

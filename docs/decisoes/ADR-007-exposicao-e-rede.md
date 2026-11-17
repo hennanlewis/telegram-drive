@@ -6,10 +6,7 @@ Aceita, com decisão de túnel adiada para a fase 9.
 
 ## Contexto
 
-O acesso será remoto, a partir de um computador pessoal ligado em casa. É preciso
-expor o viewer sem abrir portas no roteador e sem expor a administração. A
-escolha entre Cloudflared e Tailscale depende de um teste real de streaming e das
-restrições de cada serviço.
+O acesso será remoto, a partir de um computador pessoal ligado em casa. É preciso expor o viewer sem abrir portas no roteador e sem expor a administração. A escolha entre Cloudflared e Tailscale depende de um teste real de streaming e das restrições de cada serviço.
 
 ## Decisão
 
@@ -20,8 +17,7 @@ restrições de cada serviço.
   - `none` — uso local;
   - `cloudflared` — link público autenticado;
   - `tailscale` — acesso privado por tailnet.
-- A decisão final entre Cloudflared e Tailscale fica para a **fase 9**, após
-  medir streaming, latência e aderência aos termos.
+- A decisão final entre Cloudflared e Tailscale fica para a **fase 9**, após medir streaming, latência e aderência aos termos.
 - A aplicação deve funcionar plenamente em `localhost`, sem depender do túnel.
 - Backup do banco, health check e limpeza de cache são parte da operação.
 

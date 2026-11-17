@@ -6,23 +6,17 @@ Aceita.
 
 ## Contexto
 
-O Telegram não tem pastas reais, não expõe uma árvore de diretórios e não é uma
-interface adequada para navegação. Se o catálogo existir apenas no banco, a perda
-do banco significa perder a organização. Se existir apenas na legenda, cada
-operação vira uma escrita no Telegram e a navegação fica lenta.
+O Telegram não tem pastas reais, não expõe uma árvore de diretórios e não é uma interface adequada para navegação. Se o catálogo existir apenas no banco, a perda do banco significa perder a organização. Se existir apenas na legenda, cada operação vira uma escrita no Telegram e a navegação fica lenta.
 
 ## Decisão
 
-- O **banco SQLite** é a fonte da verdade do catálogo: pastas, nomes, estados,
-  referências e metadados.
-- A **legenda da mensagem** carrega um manifesto `FD1` compacto, como backup
-  portátil e mecanismo de reconstrução.
+- O **banco SQLite** é a fonte da verdade do catálogo: pastas, nomes, estados, referências e metadados.
+- A **legenda da mensagem** carrega um manifesto `FD1` compacto, como backup portátil e mecanismo de reconstrução.
 - O armazenamento é **um canal privado único**, sem tópicos.
 - A árvore é **virtual**, definida no catálogo; não há pasta física.
 - Arquivos sem manifesto entram no **Inbox**.
 - O manifesto é gravado quando o arquivo é organizado; não a cada leitura.
-- O `file_id` não é identidade permanente: as coordenadas da mensagem são a
-  referência e a `file_reference` é resolvida na leitura.
+- O `file_id` não é identidade permanente: as coordenadas da mensagem são a referência e a `file_reference` é resolvida na leitura.
 
 ## Formato do manifesto
 
@@ -38,8 +32,7 @@ t=<data ISO>
 v=<versão>
 ```
 
-Cabe em 1024 caracteres. O parser é tolerante: manifesto inválido leva o arquivo
-para o Inbox, nunca o descarta.
+Cabe em 1024 caracteres. O parser é tolerante: manifesto inválido leva o arquivo para o Inbox, nunca o descarta.
 
 ## Alternativas consideradas
 

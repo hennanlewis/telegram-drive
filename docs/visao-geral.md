@@ -2,11 +2,7 @@
 
 ## Problema
 
-Guardar vídeos, músicas e PDFs em um computador pessoal e acessá-los fora de
-casa exige expor a máquina, manter armazenamento e lidar com backups. O Telegram
-já oferece armazenamento em nuvem gratuito, com aplicativos maduros e limites
-generosos por arquivo. Falta uma camada que transforme um canal privado em um
-**explorador de arquivos** com pastas, preview, player, lixeira e metadados.
+Guardar vídeos, músicas e PDFs em um computador pessoal e acessá-los fora de casa exige expor a máquina, manter armazenamento e lidar com backups. O Telegram já oferece armazenamento em nuvem gratuito, com aplicativos maduros e limites generosos por arquivo. Falta uma camada que transforme um canal privado em um **explorador de arquivos** com pastas, preview, player, lixeira e metadados.
 
 ## Proposta
 
@@ -21,18 +17,13 @@ Um aplicativo web pessoal, rodando no próprio computador, que:
 
 ## Princípios
 
-1. **O Telegram é armazenamento, não interface.** A navegação é sempre a
-   interface web.
+1. **O Telegram é armazenamento, não interface.** A navegação é sempre a interface web.
 2. **Upload manual é o caminho padrão.** Menos automação de conta, menos risco.
-3. **O catálogo é local e reconstruível.** O banco é o índice; a legenda das
-   mensagens é o manifesto portátil.
-4. **Fronteira de risco explícita.** Pastas, favoritos, lixeira e metadados não
-   tocam no Telegram. Só leitura, download, edição de legenda e exclusão tocam.
+3. **O catálogo é local e reconstruível.** O banco é o índice; a legenda das mensagens é o manifesto portátil.
+4. **Fronteira de risco explícita.** Pastas, favoritos, lixeira e metadados não tocam no Telegram. Só leitura, download, edição de legenda e exclusão tocam.
 5. **Sem link público.** O acesso é autenticado; a exposição é feita por túnel.
-6. **Simplicidade operacional.** Sem Docker, sem fila, sem multi-tenant, sem
-   criptografia client-side no MVP.
-7. **Nada é apagado sem confirmação.** Excluir move para a lixeira; esvaziar a
-   lixeira é a única operação destrutiva no Telegram.
+6. **Simplicidade operacional.** Sem Docker, sem fila, sem multi-tenant, sem criptografia client-side no MVP.
+7. **Nada é apagado sem confirmação.** Excluir move para a lixeira; esvaziar a lixeira é a única operação destrutiva no Telegram.
 
 ## Conceitos
 
@@ -66,8 +57,7 @@ Um aplicativo web pessoal, rodando no próprio computador, que:
 ### Reprodução
 
 1. O usuário abre um vídeo ou áudio.
-2. O app verifica o formato: MP4 compatível toca direto; MKV é remuxado para
-   MP4 com `faststart` em cache.
+2. O app verifica o formato: MP4 compatível toca direto; MKV é remuxado para MP4 com `faststart` em cache.
 3. O player pede intervalos (`Range`) e o app responde do cache ou do Telegram.
 4. Legendas embutidas ou avulsas são oferecidas como faixas.
 
@@ -79,15 +69,11 @@ Um aplicativo web pessoal, rodando no próprio computador, que:
 
 ## Limites conhecidos
 
-- **Telegram:** 2 GB por arquivo (4 GB com Premium); conta dedicada sujeita a
-  limites de velocidade e às regras de uso.
-- **Navegador:** não reproduz MKV nativamente; H.264 + AAC exige remux, não
-  transcodificação.
-- **Legendas ASS:** estilos e fontes embutidas exigem renderizador dedicado no
-  navegador; a conversão para WebVTT perde a formatação.
+- **Telegram:** 2 GB por arquivo (4 GB com Premium); conta dedicada sujeita a limites de velocidade e às regras de uso.
+- **Navegador:** não reproduz MKV nativamente; H.264 + AAC exige remux, não transcodificação.
+- **Legendas ASS:** estilos e fontes embutidas exigem renderizador dedicado no navegador; a conversão para WebVTT perde a formatação.
 - **Rede:** o computador precisa estar ligado; o túnel é decidido na fase 09.
-- **Cloudflared:** o plano gratuito restringe uso intenso de banda e conteúdo
-  não-HTML; streaming pesado pode sofrer throttling.
+- **Cloudflared:** o plano gratuito restringe uso intenso de banda e conteúdo não-HTML; streaming pesado pode sofrer throttling.
 
 ## Não objetivos
 

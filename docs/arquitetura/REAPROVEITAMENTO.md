@@ -1,8 +1,6 @@
 # Reaproveitamento do projeto anterior
 
-Este documento registra o que veio do `file_explorer`, onde está e como deve ser
-usado. O objetivo é preservar o visual e as boas decisões sem arrastar o modelo
-de sistema de arquivos local.
+Este documento registra o que veio do `file_explorer`, onde está e como deve ser usado. O objetivo é preservar o visual e as boas decisões sem arrastar o modelo de sistema de arquivos local.
 
 ## Matriz de reaproveitamento
 
@@ -37,35 +35,24 @@ de sistema de arquivos local.
 
 ### Modelo de dados
 
-O legado resolve tudo por caminho (`/Documentos/Fotos`). O novo projeto resolve
-por **ID de pasta e ID de arquivo**. Isso elimina travessia de diretório e
-permite mover/renomear sem tocar no Telegram.
+O legado resolve tudo por caminho (`/Documentos/Fotos`). O novo projeto resolve por **ID de pasta e ID de arquivo**. Isso elimina travessia de diretório e permite mover/renomear sem tocar no Telegram.
 
 ### Origem dos bytes
 
-O legado lê o disco. O novo lê o Telegram via MTProto. A camada de listagem
-passa a vir do catálogo, e a camada de leitura passa a resolver uma referência de
-mensagem.
+O legado lê o disco. O novo lê o Telegram via MTProto. A camada de listagem passa a vir do catálogo, e a camada de leitura passa a resolver uma referência de mensagem.
 
 ### Upload
 
-No legado, o navegador envia o arquivo para o Flask. No novo, o upload é feito
-manualmente pelo app oficial do Telegram; a interface apenas **orienta** e
-**organiza**. O modal de upload do legado não é reaproveitado como fluxo real.
+No legado, o navegador envia o arquivo para o Flask. No novo, o upload é feito manualmente pelo app oficial do Telegram; a interface apenas **orienta** e **organiza**. O modal de upload do legado não é reaproveitado como fluxo real.
 
 ### Autenticação
 
-O legado tem login por usuário/senha, mas sem rate limiting nem timeout. O novo
-projeto mantém o modelo e **implementa** os controles que faltavam. O painel
-administrativo deixa de depender só do localhost: ganha autenticação e continua
-restrito ao loopback.
+O legado tem login por usuário/senha, mas sem rate limiting nem timeout. O novo projeto mantém o modelo e **implementa** os controles que faltavam. O painel administrativo deixa de depender só do localhost: ganha autenticação e continua restrito ao loopback.
 
 ## O que o legado ensinou
 
-1. **Separar administração de navegação** evita que um túnel transforme
-   requisições externas em “locais”. O novo projeto mantém dois processos.
-2. **Uma raiz virtual única** é mais simples e segura do que expor caminhos do
-   sistema.
+1. **Separar administração de navegação** evita que um túnel transforme requisições externas em “locais”. O novo projeto mantém dois processos.
+2. **Uma raiz virtual única** é mais simples e segura do que expor caminhos do sistema.
 3. **Ícones e MIME configuráveis** melhoram a experiência sem código novo.
 4. **O visual escuro e o grid de cards** funcionam bem em desktop e celular.
 

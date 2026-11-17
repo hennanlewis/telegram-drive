@@ -5,8 +5,7 @@
 
 ## Objetivo
 
-Fechar o ciclo de upload manual: arquivos enviados ao canal aparecem no Inbox,
-são identificados, comparados por hash e organizados com segurança.
+Fechar o ciclo de upload manual: arquivos enviados ao canal aparecem no Inbox, são identificados, comparados por hash e organizados com segurança.
 
 ## Escopo
 
@@ -81,9 +80,7 @@ tests/ingest/test_duplicates.py
 
 ## Critério de saída
 
-O fluxo “enviar pelo Telegram → varrer → organizar” funciona de ponta a ponta,
-com duplicados tratados explicitamente e nenhuma perda de arquivo. A
-reconciliação mantém catálogo e canal alinhados.
+O fluxo “enviar pelo Telegram → varrer → organizar” funciona de ponta a ponta, com duplicados tratados explicitamente e nenhuma perda de arquivo. A reconciliação mantém catálogo e canal alinhados.
 
 ## Riscos
 

@@ -25,8 +25,7 @@
 - **Manifesto:** serializar, parsear, tolerar inválido, reconstruir.
 - **Lixeira:** excluir, restaurar, esvaziar, falha de Telegram.
 - **Duplicados:** mesmo hash, decisão, versão.
-- **Telegram:** scan idempotente, referência expirada, `FloodWait`, mensagem
-  ausente.
+- **Telegram:** scan idempotente, referência expirada, `FloodWait`, mensagem ausente.
 - **Mídia:** decisão por perfil, cache hit/miss, range inválido, ffmpeg ausente.
 - **Legendas:** embutida, avulsa, múltiplos idiomas, ASS, fallback.
 - **Segurança:** rota sem sessão, papel insuficiente, CSRF, admin não exposto.
@@ -53,5 +52,4 @@ Os comandos definitivos são fixados na fase 0.
 
 ## Critério
 
-Uma fase não é concluída com teste vermelho, teste ignorado sem justificativa ou
-teste que só passa localmente por estado residual.
+Uma fase não é concluída com teste vermelho, teste ignorado sem justificativa ou teste que só passa localmente por estado residual.

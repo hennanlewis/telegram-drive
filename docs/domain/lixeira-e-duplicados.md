@@ -12,8 +12,7 @@ ativo ──excluir──► lixeira ──restaurar──► ativo
 
 - Excluir grava `status = trashed`, `trashed_from_folder_id` e `trashed_at`.
 - O arquivo continua disponível para preview enquanto está na lixeira.
-- Restaurar usa a pasta de origem; se ela não existe, recria o caminho ou coloca
-  na raiz, informando o usuário.
+- Restaurar usa a pasta de origem; se ela não existe, recria o caminho ou coloca na raiz, informando o usuário.
 - Esvaziar a lixeira é irreversível e exige confirmação com a contagem de itens.
 
 ### Esvaziar
@@ -28,18 +27,15 @@ Nunca apagar mensagens fora desse fluxo.
 
 ### Itens `missing`
 
-- Se a mensagem já não existe no Telegram, o item pode ser removido do catálogo
-  ao esvaziar a lixeira, sem chamada ao Telegram.
-- Se o arquivo está `missing` e ativo, a interface mostra aviso e oferece mover
-  para a lixeira.
+- Se a mensagem já não existe no Telegram, o item pode ser removido do catálogo ao esvaziar a lixeira, sem chamada ao Telegram.
+- Se o arquivo está `missing` e ativo, a interface mostra aviso e oferece mover para a lixeira.
 
 ## Duplicados
 
 ### Identidade
 
 - `sha256` do conteúdo + tamanho.
-- O hash é calculado na ingestão, quando o arquivo é baixado pela primeira vez,
-  ou por rotina explícita.
+- O hash é calculado na ingestão, quando o arquivo é baixado pela primeira vez, ou por rotina explícita.
 - Arquivos ainda sem hash não são comparados.
 
 ### Fluxo ao detectar
@@ -57,8 +53,7 @@ Nunca sobrescrever sem escolha explícita.
 
 - Adiado como funcionalidade completa.
 - O modelo já suporta `version` e `is_current`.
-- No MVP, “nova versão” mantém os dois registros e mostra apenas a atual na
-  navegação.
+- No MVP, “nova versão” mantém os dois registros e mostra apenas a atual na navegação.
 - Excluir uma versão segue o fluxo normal da lixeira.
 - O histórico de versões fica para uma fase futura.
 

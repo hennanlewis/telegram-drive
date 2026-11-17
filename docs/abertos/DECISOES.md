@@ -1,8 +1,6 @@
 # Decisões em aberto
 
-Pendências numeradas. Cada item indica a fase que o fecha e a recomendação atual.
-Ao resolver, registre um ADR (se for estrutural) ou atualize a fase (se for
-operacional) e remova o item daqui.
+Pendências numeradas. Cada item indica a fase que o fecha e a recomendação atual. Ao resolver, registre um ADR (se for estrutural) ou atualize a fase (se for operacional) e remova o item daqui.
 
 | ID | Pendência | Fase | Recomendação |
 |---|---|---|---|
@@ -24,7 +22,5 @@ operacional) e remova o item daqui.
 ## Regras
 
 - Uma pendência bloqueia apenas a fase indicada, não o projeto inteiro.
-- Se a fase começar sem a decisão, o agente deve propor a recomendação e
-  registrar no ADR correspondente.
-- Pendência que muda arquitetura exige ADR; pendência operacional pode ser
-  registrada na fase.
+- Se a fase começar sem a decisão, o agente deve propor a recomendação e registrar no ADR correspondente.
+- Pendência que muda arquitetura exige ADR; pendência operacional pode ser registrada na fase.

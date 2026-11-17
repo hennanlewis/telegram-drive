@@ -5,13 +5,11 @@
 
 ## Objetivo
 
-Criar o schema do catálogo, as migrations e as regras puras de pastas, arquivos,
-manifesto e lixeira — sem Telegram e sem interface.
+Criar o schema do catálogo, as migrations e as regras puras de pastas, arquivos, manifesto e lixeira — sem Telegram e sem interface.
 
 ## Escopo
 
-- Tabelas: `users`, `settings`, `folders`, `files`, `telegram_refs`, `subtitles`,
-  `favorites`, `activity`, `scan_state`.
+- Tabelas: `users`, `settings`, `folders`, `files`, `telegram_refs`, `subtitles`, `favorites`, `activity`, `scan_state`.
 - Constraints e índices.
 - Criação da raiz e do Inbox.
 - Consulta recursiva de caminho e breadcrumb.
@@ -81,9 +79,7 @@ tests/services/test_manifest.py
 
 ## Critério de saída
 
-O catálogo funciona sem Telegram: é possível criar, listar, mover, renomear,
-colocar na lixeira e restaurar por testes de serviço. O schema está completo e as
-constraints são garantidas pelo banco.
+O catálogo funciona sem Telegram: é possível criar, listar, mover, renomear, colocar na lixeira e restaurar por testes de serviço. O schema está completo e as constraints são garantidas pelo banco.
 
 ## Riscos
 

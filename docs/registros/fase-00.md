@@ -7,9 +7,7 @@
 
 ## Resumo
 
-Repositório executável com os dois processos Flask, configuração por ambiente,
-SQLite em WAL, executor de migrations, logging em JSON, health check e criação do
-primeiro admin. Nenhum módulo importa `legacy/`.
+Repositório executável com os dois processos Flask, configuração por ambiente, SQLite em WAL, executor de migrations, logging em JSON, health check e criação do primeiro admin. Nenhum módulo importa `legacy/`.
 
 ## Entregue
 
@@ -63,17 +61,11 @@ tests/test_migrations.py
 
 ## Decisões tomadas na execução
 
-- A fundação usa a migration `0000_foundation.sql` para `users` e `settings`,
-  preservando `0001_catalog.sql` para a fase 1.
-- A interface de health foi colocada em `src/routes/api/health.py` (a fase previa
-  `src/routes/web/health.py`) para respeitar a separação entre blueprints web e
-  API.
-- `APP_ENV=production` exige segredos de sessão com pelo menos 32 caracteres;
-  em desenvolvimento/teste, segredos ausentes são efêmeros e nunca versionados.
-- Timeout de sessão: 30 minutos para o admin e 60 minutos para o viewer
-  (`ADMIN_SESSION_TIMEOUT_MINUTES` e `SESSION_TIMEOUT_MINUTES`), o que fecha A15.
-- O primeiro admin é criado por `python -m scripts.create_admin`, com senha
-  digitada e confirmada na hora, o que fecha A8.
+- A fundação usa a migration `0000_foundation.sql` para `users` e `settings`, preservando `0001_catalog.sql` para a fase 1.
+- A interface de health foi colocada em `src/routes/api/health.py` (a fase previa `src/routes/web/health.py`) para respeitar a separação entre blueprints web e API.
+- `APP_ENV=production` exige segredos de sessão com pelo menos 32 caracteres; em desenvolvimento/teste, segredos ausentes são efêmeros e nunca versionados.
+- Timeout de sessão: 30 minutos para o admin e 60 minutos para o viewer (`ADMIN_SESSION_TIMEOUT_MINUTES` e `SESSION_TIMEOUT_MINUTES`), o que fecha A15.
+- O primeiro admin é criado por `python -m scripts.create_admin`, com senha digitada e confirmada na hora, o que fecha A8.
 - Lint adotado com Ruff; typecheck estático não foi adotado nesta fase.
 
 ## Testes executados
@@ -88,17 +80,13 @@ tests/test_migrations.py
 
 ## Pendências
 
-- A16 registrada em `docs/abertos/DECISOES.md`: o painel administrativo herdado
-  não tem fase explícita de portabilidade, o que afeta quando `legacy/` pode ser
-  removido.
-- A8 e A15 foram removidas de `docs/abertos/DECISOES.md` por terem sido
-  resolvidas nesta fase.
+- A16 registrada em `docs/abertos/DECISOES.md`: o painel administrativo herdado não tem fase explícita de portabilidade, o que afeta quando `legacy/` pode ser removido.
+- A8 e A15 foram removidas de `docs/abertos/DECISOES.md` por terem sido resolvidas nesta fase.
 
 ## Riscos observados
 
 - O viewer em `0.0.0.0` só deve ser exposto com firewall/túnel na fase 9.
-- O seed do primeiro admin é interativo; automação futura deve evitar senha em
-  argumento de linha de comando.
+- O seed do primeiro admin é interativo; automação futura deve evitar senha em argumento de linha de comando.
 
 ## Próximo passo
 

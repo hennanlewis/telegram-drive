@@ -5,8 +5,7 @@
 
 ## Objetivo
 
-Oferecer legendas no player: embutidas no MKV, avulsas na mesma pasta e ASS com
-estilos e fontes, com seleção de faixa.
+Oferecer legendas no player: embutidas no MKV, avulsas na mesma pasta e ASS com estilos e fontes, com seleção de faixa.
 
 ## Escopo
 
@@ -79,9 +78,7 @@ tests/subtitles/test_extract.py
 
 ## Critério de saída
 
-O usuário escolhe a legenda no player, vê ASS com o estilo e as fontes
-correspondentes, e legendas avulsas são encontradas automaticamente na pasta do
-vídeo. Nenhum caso de legenda quebra a reprodução.
+O usuário escolhe a legenda no player, vê ASS com o estilo e as fontes correspondentes, e legendas avulsas são encontradas automaticamente na pasta do vídeo. Nenhum caso de legenda quebra a reprodução.
 
 ## Riscos
 

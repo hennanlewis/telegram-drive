@@ -5,8 +5,7 @@
 
 ## Objetivo
 
-Conectar a conta dedicada ao canal privado, varrer mensagens, registrar
-referências e ler bytes com suporte a offset — sem interface.
+Conectar a conta dedicada ao canal privado, varrer mensagens, registrar referências e ler bytes com suporte a offset — sem interface.
 
 ## Escopo
 
@@ -78,9 +77,7 @@ scripts/telegram_check.py
 
 ## Critério de saída
 
-Dado um canal de teste com documentos, a varredura popula o catálogo e a leitura
-por offset retorna os bytes corretos. Nenhum teste depende de rede ou de
-credencial real.
+Dado um canal de teste com documentos, a varredura popula o catálogo e a leitura por offset retorna os bytes corretos. Nenhum teste depende de rede ou de credencial real.
 
 ## Riscos
 

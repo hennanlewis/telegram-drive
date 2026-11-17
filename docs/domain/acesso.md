@@ -2,8 +2,7 @@
 
 ## Modelo
 
-O MVP é **single-user**, mas o modelo de papéis existe para permitir um segundo
-usuário sem refatoração.
+O MVP é **single-user**, mas o modelo de papéis existe para permitir um segundo usuário sem refatoração.
 
 | Papel | Onde atua | Pode |
 |---|---|---|
@@ -49,8 +48,7 @@ O usuário principal do MVP acumula `admin` + `editor`. Não há cadastro públi
 1. O banco é criado e migrado.
 2. Um script local cria o primeiro `admin` com senha definida na hora.
 3. O admin entra no `app_admin` em `127.0.0.1`.
-4. O admin configura o canal, testa a conexão e cria o usuário do viewer, se
-   quiser separar as credenciais.
+4. O admin configura o canal, testa a conexão e cria o usuário do viewer, se quiser separar as credenciais.
 5. Não existe tela de “criar primeira conta” acessível pela rede.
 
 ## Bloqueio por tentativas
@@ -67,8 +65,7 @@ São identidades diferentes:
 - **Usuário do app:** quem entra na interface web.
 - **Conta do Telegram:** a conta dedicada que o servidor usa para ler o canal.
 
-O usuário do app **nunca** recebe credenciais do Telegram. Ele só vê o catálogo.
-A conta do Telegram é configuração do servidor, não um usuário do sistema.
+O usuário do app **nunca** recebe credenciais do Telegram. Ele só vê o catálogo. A conta do Telegram é configuração do servidor, não um usuário do sistema.
 
 ## Regras
 

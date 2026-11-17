@@ -22,9 +22,7 @@ Computador pessoal
 └──────────────────────────────────────────────┘
 ```
 
-O processo de **administração** nunca é exposto pelo túnel. Ele serve para
-configuração inicial, usuários e diagnóstico. O processo **visualizador** é o
-único que o túnel alcança.
+O processo de **administração** nunca é exposto pelo túnel. Ele serve para configuração inicial, usuários e diagnóstico. O processo **visualizador** é o único que o túnel alcança.
 
 ## Componentes
 
@@ -45,22 +43,13 @@ configuração inicial, usuários e diagnóstico. O processo **visualizador** é
 - O `app_admin` escreve configuração e usuários; o `app_viewer` escreve catálogo.
 - Sessões e segredos de sessão são **distintos** entre os processos.
 - O visualizador nunca depende do processo de administração estar no ar.
-- Se a concorrência de escrita crescer, a fase 9 avalia mover a escrita para um
-  único processo; não é necessário no MVP.
+- Se a concorrência de escrita crescer, a fase 9 avalia mover a escrita para um único processo; não é necessário no MVP.
 
-Essa separação vem do projeto anterior e existe porque, atrás de um túnel, todas
-as requisições parecem vir de `127.0.0.1`. Decidir privilégio por IP de origem
-seria uma falha grave. Detalhes em
-[`SEGURANCA.md`](SEGURANCA.md).
+Essa separação vem do projeto anterior e existe porque, atrás de um túnel, todas as requisições parecem vir de `127.0.0.1`. Decidir privilégio por IP de origem seria uma falha grave. Detalhes em [`SEGURANCA.md`](SEGURANCA.md).
 
 ## Reaproveitamento visual
 
-A interface mantém a identidade do `file_explorer`: tema escuro, Inter,
-breadcrumb, grid de cartões, ícones por tipo e modal de preview. Os assets já
-estão em `src/static/`; os templates e o JavaScript originais estão em
-`legacy/frontend/` como referência de portabilidade. O que muda é a fonte dos
-dados (catálogo por ID, não sistema de arquivos) e o fluxo de upload (manual pelo
-Telegram).
+A interface mantém a identidade do `file_explorer`: tema escuro, Inter, breadcrumb, grid de cartões, ícones por tipo e modal de preview. Os assets já estão em `src/static/`; os templates e o JavaScript originais estão em `legacy/frontend/` como referência de portabilidade. O que muda é a fonte dos dados (catálogo por ID, não sistema de arquivos) e o fluxo de upload (manual pelo Telegram).
 
 Ver [`REAPROVEITAMENTO.md`](REAPROVEITAMENTO.md) e [`INTERFACE.md`](INTERFACE.md).
 
@@ -94,8 +83,7 @@ A varredura **não baixa conteúdo**. Ela só lê metadados de mensagens.
 1. O usuário move o arquivo para uma pasta virtual no catálogo.
 2. O app grava/atualiza o manifesto na legenda da mensagem.
 3. A operação é registrada na auditoria.
-4. Se a gravação da legenda falhar, o catálogo continua válido e a divergência é
-   marcada para reconciliação.
+4. Se a gravação da legenda falhar, o catálogo continua válido e a divergência é marcada para reconciliação.
 
 ### Reprodução
 
@@ -132,8 +120,7 @@ src/
   static/
 ```
 
-Regra: **regra de negócio não fica na rota nem no template**. Rotas validam,
-chamam serviço e respondem; serviços concentram decisão.
+Regra: **regra de negócio não fica na rota nem no template**. Rotas validam, chamam serviço e respondem; serviços concentram decisão.
 
 ## Modos de falha
 

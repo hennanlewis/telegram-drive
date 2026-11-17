@@ -6,9 +6,7 @@ Aceita.
 
 ## Contexto
 
-O uso é pessoal. Multiusuário traria cotas, escopo por usuário, convites,
-administração de contas e isolamento de acervo — custo alto para um benefício
-inexistente no curto prazo.
+O uso é pessoal. Multiusuário traria cotas, escopo por usuário, convites, administração de contas e isolamento de acervo — custo alto para um benefício inexistente no curto prazo.
 
 ## Decisão
 

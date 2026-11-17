@@ -75,5 +75,4 @@ docs/
 
 ## Regra de ouro
 
-Nenhum documento deve ser lido por inteiro sem necessidade. Se um arquivo passar
-de ~3k tokens, ele deve ser dividido por **responsabilidade**, não por tamanho.
+Nenhum documento deve ser lido por inteiro sem necessidade. Se um arquivo passar de ~3k tokens, ele deve ser dividido por **responsabilidade**, não por tamanho.

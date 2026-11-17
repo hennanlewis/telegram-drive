@@ -5,8 +5,7 @@
 
 ## Objetivo
 
-Entregar a experiência de explorador: login, árvore de pastas virtuais,
-breadcrumb, grid de cartões, ícones e navegação — usando o visual herdado.
+Entregar a experiência de explorador: login, árvore de pastas virtuais, breadcrumb, grid de cartões, ícones e navegação — usando o visual herdado.
 
 ## Escopo
 
@@ -81,9 +80,7 @@ tests/api/test_folders.py
 
 ## Critério de saída
 
-É possível entrar, navegar por toda a árvore, ver o Inbox e reconhecer os tipos
-de arquivo, com a identidade visual do projeto anterior e sem qualquer caminho
-real do sistema exposto.
+É possível entrar, navegar por toda a árvore, ver o Inbox e reconhecer os tipos de arquivo, com a identidade visual do projeto anterior e sem qualquer caminho real do sistema exposto.
 
 ## Riscos
 

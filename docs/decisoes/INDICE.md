@@ -25,12 +25,9 @@
 ## Como ler
 
 - **Aceita:** vale para a implementação; mudanças exigem novo ADR.
-- **Adiada:** decisão consciente de não decidir agora; a fase indicada é a
-  última responsável por fechá-la.
+- **Adiada:** decisão consciente de não decidir agora; a fase indicada é a última responsável por fechá-la.
 - **Em aberto:** ver [`../abertos/DECISOES.md`](../abertos/DECISOES.md).
 
 ## Decisões que não têm ADR próprio
 
-Itens operacionais pequenos (tamanho de cache, limite de texto, retenção de
-backup) estão em [`../abertos/DECISOES.md`](../abertos/DECISOES.md) e serão
-fechados na fase correspondente.
+Itens operacionais pequenos (tamanho de cache, limite de texto, retenção de backup) estão em [`../abertos/DECISOES.md`](../abertos/DECISOES.md) e serão fechados na fase correspondente.

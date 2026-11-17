@@ -6,19 +6,15 @@ Aceita.
 
 ## Contexto
 
-O projeto precisa armazenar e reproduzir vídeos de até 2 GB. A Bot API limita o
-download a ~20 MB e o upload a ~50 MB, o que inviabiliza o caso de uso. Também é
-preciso ler um canal privado e editar as legendas dos próprios arquivos.
+O projeto precisa armazenar e reproduzir vídeos de até 2 GB. A Bot API limita o download a ~20 MB e o upload a ~50 MB, o que inviabiliza o caso de uso. Também é preciso ler um canal privado e editar as legendas dos próprios arquivos.
 
 ## Decisão
 
 - Usar **MTProto** por meio do **Telethon**, com uma **conta dedicada**.
 - Obter `api_id`/`api_hash` em `my.telegram.org`.
 - Guardar a sessão em arquivo local, fora do Git.
-- **Não automatizar uploads** no MVP: o envio é feito manualmente pelo app
-  oficial do Telegram.
-- O app **lê** o canal, **organiza** o catálogo, **grava a legenda** e **apaga
-  mensagens** apenas ao esvaziar a lixeira.
+- **Não automatizar uploads** no MVP: o envio é feito manualmente pelo app oficial do Telegram.
+- O app **lê** o canal, **organiza** o catálogo, **grava a legenda** e **apaga mensagens** apenas ao esvaziar a lixeira.
 - Não usar bot no MVP; um bot, se existir, será apenas para notificações.
 - Não dividir arquivos em partes: o limite de 2 GB cobre o acervo previsto.
 

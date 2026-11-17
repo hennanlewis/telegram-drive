@@ -1,21 +1,12 @@
 # Roadmap
 
-> Este arquivo é **apenas o índice das fases**. O detalhe de cada fase está em
-> [`roadmap/`](roadmap/). O registro do que foi executado está em
-> [`registros/`](registros/). Critérios de aceite em
-> [`ACEITE-MVP.md`](ACEITE-MVP.md); decisões em
-> [`decisoes/INDICE.md`](decisoes/INDICE.md); pendências em
-> [`abertos/DECISOES.md`](abertos/DECISOES.md); risco do Telegram em
-> [`arquitetura/TELEGRAM.md`](arquitetura/TELEGRAM.md).
+> Este arquivo é **apenas o índice das fases**. O detalhe de cada fase está em [`roadmap/`](roadmap/). O registro do que foi executado está em [`registros/`](registros/). Critérios de aceite em [`ACEITE-MVP.md`](ACEITE-MVP.md); decisões em [`decisoes/INDICE.md`](decisoes/INDICE.md); pendências em [`abertos/DECISOES.md`](abertos/DECISOES.md); risco do Telegram em [`arquitetura/TELEGRAM.md`](arquitetura/TELEGRAM.md).
 
 ## Como usar
 
-- Cada fase é independente e testável. Só avance quando o critério de saída da
-  fase anterior estiver atendido.
-- A interface de cada módulo é construída junto com a fase do módulo; não existe
-  uma fase única de interface no final.
-- O status é atualizado com **uma linha** nesta tabela. O resto vai para o
-  registro da fase.
+- Cada fase é independente e testável. Só avance quando o critério de saída da fase anterior estiver atendido.
+- A interface de cada módulo é construída junto com a fase do módulo; não existe uma fase única de interface no final.
+- O status é atualizado com **uma linha** nesta tabela. O resto vai para o registro da fase.
 
 ## Status
 
@@ -36,9 +27,7 @@ Legenda: `não iniciada` · `em andamento` · `bloqueada` · `concluída`
 
 ## Progresso atual
 
-**Fase 0 concluída.** A fundação está executável e testada: dois processos,
-banco com migrations, health check e admin inicial. A
-próxima ação é iniciar a [Fase 1 — Modelo de dados](roadmap/fase-01-modelo-de-dados.md).
+**Fase 0 concluída.** A fundação está executável e testada: dois processos, banco com migrations, health check e admin inicial. A próxima ação é iniciar a [Fase 1 — Modelo de dados](roadmap/fase-01-modelo-de-dados.md).
 
 ## Dependências
 

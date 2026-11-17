@@ -6,9 +6,7 @@
 
 ## Objetivo
 
-Ter um repositório executável, testável e configurável, com os dois processos
-(admin e viewer) subindo, banco criado e health check funcionando — ainda sem
-Telegram e sem catálogo.
+Ter um repositório executável, testável e configurável, com os dois processos (admin e viewer) subindo, banco criado e health check funcionando — ainda sem Telegram e sem catálogo.
 
 ## Escopo
 
@@ -85,9 +83,7 @@ tests/test_migrations.py
 
 ## Critério de saída
 
-A aplicação sobe em ambiente limpo, com banco criado, migrations aplicadas,
-admin criado e health check respondendo. Os comandos estão documentados e os
-testes passam sem depender de estado residual.
+A aplicação sobe em ambiente limpo, com banco criado, migrations aplicadas, admin criado e health check respondendo. Os comandos estão documentados e os testes passam sem depender de estado residual.
 
 ## Riscos
 

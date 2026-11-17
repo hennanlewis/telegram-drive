@@ -6,9 +6,7 @@ Aceita.
 
 ## Contexto
 
-O projeto anterior já usa Flask, SQLite e uma separação entre administração e
-explorer que se mostrou necessária por causa de túneis. O novo projeto precisa de
-streaming, cache e chamadas ao Telegram, mas não de uma infraestrutura pesada.
+O projeto anterior já usa Flask, SQLite e uma separação entre administração e explorer que se mostrou necessária por causa de túneis. O novo projeto precisa de streaming, cache e chamadas ao Telegram, mas não de uma infraestrutura pesada.
 
 ## Decisão
 
@@ -38,12 +36,9 @@ streaming, cache e chamadas ao Telegram, mas não de uma infraestrutura pesada.
 
 - O deploy é simples: dois processos e um banco.
 - A concorrência de escrita é limitada; WAL e transações curtas resolvem.
-- Operações longas (remux, download) ocupam uma requisição; o retry e o cache
-  mitigam.
-- Sem Docker, a reprodutibilidade depende de `uv.lock` e de um script de
-  instalação bem documentado.
-- O frontend permanece simples, mas exige disciplina para não virar um arquivo
-  monolítico.
+- Operações longas (remux, download) ocupam uma requisição; o retry e o cache mitigam.
+- Sem Docker, a reprodutibilidade depende de `uv.lock` e de um script de instalação bem documentado.
+- O frontend permanece simples, mas exige disciplina para não virar um arquivo monolítico.
 
 ## Relacionados
 

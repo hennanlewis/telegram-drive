@@ -4,8 +4,7 @@
 
 - **SQLite** em modo **WAL**, um arquivo local.
 - Acesso por SQL explícito, sem ORM.
-- Migrations SQL versionadas em `migrations/`, aplicadas por um executor simples
-  e idempotente.
+- Migrations SQL versionadas em `migrations/`, aplicadas por um executor simples e idempotente.
 - Testes usam banco temporário criado do zero.
 - O banco é a fonte da verdade do catálogo; a legenda é o manifesto portátil.
 
@@ -59,8 +58,7 @@ Onde o arquivo está no Telegram.
 
 Faixas de legenda conhecidas.
 
-- `id`, `file_id`, `source` (`embedded` ou `sidecar`), `language`, `format`
-  (`srt`, `ass`, `vtt`), `label`.
+- `id`, `file_id`, `source` (`embedded` ou `sidecar`), `language`, `format` (`srt`, `ass`, `vtt`), `label`.
 - `telegram_message_id` para legenda avulsa; nulo para embutida.
 - `cache_path` para o arquivo extraído.
 
@@ -74,8 +72,7 @@ Faixas de legenda conhecidas.
 Auditoria simples de operações relevantes.
 
 - `id`, `action`, `file_id`, `detail`, `created_at`.
-- Ações: `ingest`, `move`, `rename`, `trash`, `restore`, `delete`, `manifest`,
-  `duplicate`.
+- Ações: `ingest`, `move`, `rename`, `trash`, `restore`, `delete`, `manifest`, `duplicate`.
 - Não guarda conteúdo de arquivo nem segredo.
 
 ### `scan_state`
@@ -117,19 +114,15 @@ Regras:
 
 - O manifesto é escrito pelo app ao organizar o arquivo.
 - Arquivo sem manifesto vai para o Inbox.
-- Chaves desconhecidas são preservadas? **Não.** O app reescreve o manifesto
-  completo ao atualizar; extensões futuras exigem nova versão (`FD2`).
-- O parser é tolerante: linhas inválidas são ignoradas e o arquivo entra no
-  Inbox com aviso.
+- Chaves desconhecidas são preservadas? **Não.** O app reescreve o manifesto completo ao atualizar; extensões futuras exigem nova versão (`FD2`).
+- O parser é tolerante: linhas inválidas são ignoradas e o arquivo entra no Inbox com aviso.
 - O manifesto não substitui o banco: é redundância para reconstrução.
 
 ## Caminhos e nomes
 
 - Caminho virtual é a concatenação de nomes de pastas a partir da raiz.
-- Nomes são exibidos como vieram do Telegram, mas normalizados para armazenar
-  (trim, sem caracteres de controle).
-- Colisão de nome na mesma pasta: o app pergunta renomear, substituir ou criar
-  versão; nunca sobrescreve silenciosamente.
+- Nomes são exibidos como vieram do Telegram, mas normalizados para armazenar (trim, sem caracteres de controle).
+- Colisão de nome na mesma pasta: o app pergunta renomear, substituir ou criar versão; nunca sobrescreve silenciosamente.
 - O usuário nunca informa caminho absoluto do sistema operacional.
 - Não há travessia de diretório: toda resolução é por ID de pasta/arquivo.
 
@@ -150,26 +143,22 @@ Regras:
   2. remove referências, legendas e favoritos;
   3. remove o registro do arquivo;
   4. registra a ação na auditoria.
-- Falha ao apagar no Telegram mantém o registro em estado `trashed` com erro,
-  para nova tentativa.
+- Falha ao apagar no Telegram mantém o registro em estado `trashed` com erro, para nova tentativa.
 
 ## Duplicados e versões
 
 - Identidade de conteúdo: `sha256` + tamanho.
-- Ao ingerir, se já existe arquivo ativo com o mesmo hash, marcar como
-  **duplicado candidato** e pedir decisão:
+- Ao ingerir, se já existe arquivo ativo com o mesmo hash, marcar como **duplicado candidato** e pedir decisão:
   - manter os dois;
   - substituir o existente (o antigo vai para a lixeira);
   - criar nova versão.
-- Versionamento completo (histórico navegável) é adiado; os campos `version` e
-  `is_current` permitem implementá-lo sem migração destrutiva.
+- Versionamento completo (histórico navegável) é adiado; os campos `version` e `is_current` permitem implementá-lo sem migração destrutiva.
 
 ## Reconstrução do catálogo
 
 1. Criar banco vazio e aplicar migrations.
 2. Varrer o canal do início ao fim.
-3. Para cada documento com manifesto válido: recriar pastas, arquivo e
-   referência.
+3. Para cada documento com manifesto válido: recriar pastas, arquivo e referência.
 4. Para cada documento sem manifesto: criar no Inbox.
 5. Ao final, comparar contagens e listar divergências.
 
@@ -179,10 +168,8 @@ A reconstrução não baixa bytes e não escreve no Telegram.
 
 - WAL permite leitura simultânea à escrita.
 - Escritas são curtas e transacionais.
-- A varredura e a organização podem competir; usar transação por arquivo e
-  `busy_timeout`.
-- O pipeline de mídia não escreve no catálogo durante o streaming, exceto para
-  atualizar cache/estado.
+- A varredura e a organização podem competir; usar transação por arquivo e `busy_timeout`.
+- O pipeline de mídia não escreve no catálogo durante o streaming, exceto para atualizar cache/estado.
 
 ## Backup
 

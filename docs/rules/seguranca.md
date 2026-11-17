@@ -1,7 +1,6 @@
 # Regras de segurança
 
-Checklist normativo. O modelo completo está em
-[`../arquitetura/SEGURANCA.md`](../arquitetura/SEGURANCA.md).
+Checklist normativo. O modelo completo está em [`../arquitetura/SEGURANCA.md`](../arquitetura/SEGURANCA.md).
 
 ## Acesso
 

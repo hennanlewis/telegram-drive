@@ -1,7 +1,6 @@
 # Registros de execução
 
-Este diretório guarda o **histórico do que foi feito** em cada fase. É separado
-do roadmap de propósito: o plano é estável, o registro cresce.
+Este diretório guarda o **histórico do que foi feito** em cada fase. É separado do roadmap de propósito: o plano é estável, o registro cresce.
 
 ## Regras
 

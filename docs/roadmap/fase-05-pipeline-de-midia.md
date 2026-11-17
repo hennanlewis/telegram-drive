@@ -5,8 +5,7 @@
 
 ## Objetivo
 
-Reproduzir vídeo e áudio no navegador, com seek, a partir de arquivos no
-Telegram — priorizando remux de MKV H.264/AAC, sem reencode desnecessário.
+Reproduzir vídeo e áudio no navegador, com seek, a partir de arquivos no Telegram — priorizando remux de MKV H.264/AAC, sem reencode desnecessário.
 
 ## Escopo
 
@@ -88,9 +87,7 @@ tests/fixtures/ (mídia pequena)
 
 ## Critério de saída
 
-Um MKV H.264/AAC do acervo real toca no navegador, com seek, sem reencode de
-vídeo, e o cache permanece dentro do limite configurado. Os demais perfis têm
-comportamento definido e mensagens claras.
+Um MKV H.264/AAC do acervo real toca no navegador, com seek, sem reencode de vídeo, e o cache permanece dentro do limite configurado. Os demais perfis têm comportamento definido e mensagens claras.
 
 ## Riscos
 

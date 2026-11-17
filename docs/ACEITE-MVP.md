@@ -1,7 +1,6 @@
 # Critérios de aceite do MVP
 
-O MVP está aceito quando **todos** os itens abaixo forem verdadeiros em uma
-execução real, documentada no registro da fase 9.
+O MVP está aceito quando **todos** os itens abaixo forem verdadeiros em uma execução real, documentada no registro da fase 9.
 
 ## Acesso
 
@@ -25,10 +24,8 @@ execução real, documentada no registro da fase 9.
 - [ ] Um arquivo enviado manualmente ao canal aparece no Inbox após a varredura.
 - [ ] A varredura não baixa o conteúdo dos arquivos.
 - [ ] O manifesto é gravado na legenda ao organizar.
-- [ ] Um arquivo repetido (mesmo hash) gera aviso com opções de manter os dois,
-      substituir ou criar versão.
-- [ ] Arquivo sem manifesto pode ser reconstruído a partir do canal quando o
-      banco é perdido.
+- [ ] Um arquivo repetido (mesmo hash) gera aviso com opções de manter os dois, substituir ou criar versão.
+- [ ] Arquivo sem manifesto pode ser reconstruído a partir do canal quando o banco é perdido.
 
 ## Preview e download
 
@@ -53,8 +50,7 @@ execução real, documentada no registro da fase 9.
 - [ ] Legendas embutidas (SRT/ASS) aparecem como faixas selecionáveis.
 - [ ] Legendas avulsas na mesma pasta são encontradas pelo nome do vídeo.
 - [ ] O player lembra a preferência de idioma.
-- [ ] ASS com estilos e fontes é renderizado corretamente, ou há fallback
-      explícito para WebVTT.
+- [ ] ASS com estilos e fontes é renderizado corretamente, ou há fallback explícito para WebVTT.
 - [ ] Vídeo sem legenda continua reproduzindo normalmente.
 
 ## Organização e lixeira
@@ -73,8 +69,7 @@ execução real, documentada no registro da fase 9.
 - [ ] Existe uma rotina de backup do banco, testada com restauração.
 - [ ] O log não contém segredos nem caminhos de sessão do Telegram.
 - [ ] Existe verificação de saúde da aplicação e do acesso ao Telegram.
-- [ ] A indisponibilidade do Telegram produz erro amigável e modo somente
-      leitura, sem perda de dados.
+- [ ] A indisponibilidade do Telegram produz erro amigável e modo somente leitura, sem perda de dados.
 
 ## Documentação
 

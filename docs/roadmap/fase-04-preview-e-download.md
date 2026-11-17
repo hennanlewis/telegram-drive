@@ -5,8 +5,7 @@
 
 ## Objetivo
 
-Abrir arquivos no navegador quando possível e baixar quando não for: imagem,
-PDF, texto/código e tipos desconhecidos.
+Abrir arquivos no navegador quando possível e baixar quando não for: imagem, PDF, texto/código e tipos desconhecidos.
 
 ## Escopo
 
@@ -70,9 +69,7 @@ tests/api/test_content.py
 
 ## Critério de saída
 
-Imagem, PDF e texto abrem no navegador; qualquer outro tipo pode ser baixado; o
-comportamento é consistente para arquivos pequenos e grandes, e todas as rotas
-exigem sessão.
+Imagem, PDF e texto abrem no navegador; qualquer outro tipo pode ser baixado; o comportamento é consistente para arquivos pequenos e grandes, e todas as rotas exigem sessão.
 
 ## Riscos
 

@@ -1,8 +1,6 @@
 # Interface e identidade visual
 
-A interface reaproveita a identidade do `file_explorer`: tema escuro, tipografia
-Inter, grid de cartões, ícones por tipo, breadcrumb e modal de preview. A
-inspiração original é o Explorador de Arquivos do Windows 11.
+A interface reaproveita a identidade do `file_explorer`: tema escuro, tipografia Inter, grid de cartões, ícones por tipo, breadcrumb e modal de preview. A inspiração original é o Explorador de Arquivos do Windows 11.
 
 Os arquivos de base já estão no repositório:
 
@@ -11,11 +9,9 @@ Os arquivos de base já estão no repositório:
 - `src/static/css/admin.css` — administração;
 - `src/static/icons/` — ícones;
 - `config/mime_map.json` — extensão → ícone e overrides de MIME;
-- `src/static/js/vendor/highlight.min.js` e
-  `src/static/css/vendor/tokyo-night-dark.min.css` — realce de código.
+- `src/static/js/vendor/highlight.min.js` e `src/static/css/vendor/tokyo-night-dark.min.css` — realce de código.
 
-Os templates e o JavaScript do legado estão em `legacy/frontend/` como
-referência; devem ser **portados**, não copiados sem revisão.
+Os templates e o JavaScript do legado estão em `legacy/frontend/` como referência; devem ser **portados**, não copiados sem revisão.
 
 ## Princípios
 
@@ -23,10 +19,8 @@ referência; devem ser **portados**, não copiados sem revisão.
 - Uma única árvore de navegação: header fixo, breadcrumb, grid.
 - O arquivo é o protagonista: ícone, nome, tamanho e data.
 - Ações destrutivas nunca ficam a um clique acidental.
-- O estado do sistema é visível: preparando mídia, Telegram offline, arquivo na
-  lixeira, item sem manifesto.
-- Funciona em desktop, tablet e celular; teclado e leitor de tela são
-  considerados.
+- O estado do sistema é visível: preparando mídia, Telegram offline, arquivo na lixeira, item sem manifesto.
+- Funciona em desktop, tablet e celular; teclado e leitor de tela são considerados.
 
 ## Tokens visuais herdados
 
@@ -90,8 +84,7 @@ Componentes herdados:
 
 ## Ícones e tipos
 
-`config/mime_map.json` mapeia extensões para ícones. O resolvedor do novo
-projeto recebe o MIME e o nome do catálogo, não um `Path` do sistema.
+`config/mime_map.json` mapeia extensões para ícones. O resolvedor do novo projeto recebe o MIME e o nome do catálogo, não um `Path` do sistema.
 
 | Tipo | Ícone |
 |---|---|
@@ -105,9 +98,7 @@ projeto recebe o MIME e o nome do catálogo, não um `Path` do sistema.
 | PDF | `svg/pdf-file.svg` |
 | HTML/CSS/JS/TS/Python/React | ícones SVG específicos |
 
-Regra: se a extensão não estiver no mapa, usar `file.png`. O tipo lógico
-(`folder`, `image`, `video`, `audio`, `text`, `pdf`, `file`) continua sendo
-calculado pelo MIME, como no legado, mas a partir dos dados do catálogo.
+Regra: se a extensão não estiver no mapa, usar `file.png`. O tipo lógico (`folder`, `image`, `video`, `audio`, `text`, `pdf`, `file`) continua sendo calculado pelo MIME, como no legado, mas a partir dos dados do catálogo.
 
 ## Preview
 
@@ -129,8 +120,7 @@ Limites:
 
 ## Login
 
-Tela herdada (`login.css`): cartão central, título, subtítulo, campos de usuário
-e senha, mensagem de erro. Manter:
+Tela herdada (`login.css`): cartão central, título, subtítulo, campos de usuário e senha, mensagem de erro. Manter:
 
 - `autocomplete="username"` e `current-password`;
 - foco automático no usuário;
@@ -140,8 +130,7 @@ e senha, mensagem de erro. Manter:
 
 ## Administração
 
-Painel local herdado (`admin.css`): cartões, formulário e tabela de usuários.
-Adaptar para:
+Painel local herdado (`admin.css`): cartões, formulário e tabela de usuários. Adaptar para:
 
 - configurar o canal e testar a conexão com o Telegram;
 - cadastrar e desativar usuários;
@@ -150,8 +139,7 @@ Adaptar para:
 - executar varredura manual do canal;
 - mostrar diagnóstico de ffmpeg/ffprobe.
 
-O painel continua com o selo “Local Only (127.0.0.1)” e **não** é exposto pelo
-túnel.
+O painel continua com o selo “Local Only (127.0.0.1)” e **não** é exposto pelo túnel.
 
 ## Estados e mensagens
 

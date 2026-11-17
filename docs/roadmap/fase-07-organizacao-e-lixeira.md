@@ -5,9 +5,7 @@
 
 ## Objetivo
 
-Permitir organizar o acervo pela interface: criar, renomear e mover pastas e
-arquivos, organizar o Inbox, usar a lixeira e restaurar — com o manifesto
-sincronizado.
+Permitir organizar o acervo pela interface: criar, renomear e mover pastas e arquivos, organizar o Inbox, usar a lixeira e restaurar — com o manifesto sincronizado.
 
 ## Escopo
 
@@ -81,9 +79,7 @@ tests/services/test_trash.py
 
 ## Critério de saída
 
-Todas as operações de organização funcionam pela interface, a lixeira protege
-contra exclusão acidental e o manifesto reflete o catálogo. Nenhuma operação
-apaga bytes fora do esvaziamento da lixeira.
+Todas as operações de organização funcionam pela interface, a lixeira protege contra exclusão acidental e o manifesto reflete o catálogo. Nenhuma operação apaga bytes fora do esvaziamento da lixeira.
 
 ## Riscos
 

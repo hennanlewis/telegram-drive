@@ -2,9 +2,7 @@
 
 ## Objetivo
 
-Reproduzir vídeo e áudio no navegador a partir de arquivos que estão no
-Telegram, com seek, sem baixar o arquivo inteiro antes de começar e sem
-reencodar quando não for necessário.
+Reproduzir vídeo e áudio no navegador a partir de arquivos que estão no Telegram, com seek, sem baixar o arquivo inteiro antes de começar e sem reencodar quando não for necessário.
 
 ## Compatibilidade do navegador
 
@@ -17,8 +15,7 @@ reencodar quando não for necessário.
 | WebM + VP9/Opus | bom | reprodução direta |
 | AVI/WMV/MPEG-2 | não suportado | transcode ou recusa explicada |
 
-O acervo previsto é **MKV H.264 (inclusive NVENC) + AAC**. Nesse caso, o caminho
-é sempre **remux com cópia de vídeo e áudio** — rápido e com baixo uso de CPU.
+O acervo previsto é **MKV H.264 (inclusive NVENC) + AAC**. Nesse caso, o caminho é sempre **remux com cópia de vídeo e áudio** — rápido e com baixo uso de CPU.
 
 ## Pipeline
 
@@ -39,8 +36,7 @@ pedido do player
 
 ### Etapas
 
-1. **Sondagem:** `ffprobe` obtém container, codecs de vídeo/áudio, duração,
-   dimensões e faixas de legenda.
+1. **Sondagem:** `ffprobe` obtém container, codecs de vídeo/áudio, duração, dimensões e faixas de legenda.
 2. **Decisão:** tabela de compatibilidade.
 3. **Preparação:** gera o arquivo de cache com ffmpeg.
 4. **Publicação:** cache pronto e registrado no catálogo de cache.
@@ -55,8 +51,7 @@ pedido do player
 | `remux-aac` | MKV H.264 + AC3/DTS | vídeo `copy`, áudio AAC |
 | `transcode` | codec de vídeo incompatível | reencode (último recurso) |
 
-O perfil é parte da chave do cache: o mesmo arquivo pode ter mais de uma versão
-preparada se o perfil mudar.
+O perfil é parte da chave do cache: o mesmo arquivo pode ter mais de uma versão preparada se o perfil mudar.
 
 ## Cache
 
@@ -65,8 +60,7 @@ preparada se o perfil mudar.
 - Limite por tamanho (`CACHE_MAX_GB`) e por idade (`CACHE_TTL_HOURS`).
 - Política **LRU**: ao faltar espaço, remove o menos usado recentemente.
 - Limpeza na inicialização e periodicamente.
-- Arquivo em preparação tem estado (`preparing`, `ready`, `failed`) e não é
-  servido parcialmente.
+- Arquivo em preparação tem estado (`preparing`, `ready`, `failed`) e não é servido parcialmente.
 - Um mesmo arquivo não é preparado duas vezes ao mesmo tempo: lock por chave.
 
 ## Streaming e seek
@@ -75,8 +69,7 @@ preparada se o perfil mudar.
 - `HEAD` retorna tamanho e tipo sem corpo.
 - Para `direct`, o intervalo é traduzido em offset no Telegram.
 - Para cache, o intervalo é lido do arquivo local.
-- Seek por tempo depende do índice do container; com MP4 `faststart`, o
-  navegador faz a busca por byte.
+- Seek por tempo depende do índice do container; com MP4 `faststart`, o navegador faz a busca por byte.
 - O player mostra buffer e estado de preparação.
 - Não há HLS, DASH, DRM ou transmissão adaptativa no MVP.
 
@@ -85,15 +78,13 @@ preparada se o perfil mudar.
 ### Fontes
 
 1. **Embutidas** no MKV (SRT, ASS/SSA).
-2. **Avulsas** na mesma pasta virtual, com o mesmo nome-base do vídeo
-   (ex.: `S01E01.pt-BR.srt`).
+2. **Avulsas** na mesma pasta virtual, com o mesmo nome-base do vídeo (ex.: `S01E01.pt-BR.srt`).
 3. Futuro: legenda embutida em arquivo separado enviado ao canal.
 
 ### Extração
 
 - SRT/ASS embutidos são extraídos para o cache com ffmpeg.
-- ASS com fontes embutidas: as fontes são anexos do MKV e precisam ser extraídas
-  junto.
+- ASS com fontes embutidas: as fontes são anexos do MKV e precisam ser extraídas junto.
 - Formatos de imagem (PGS/VobSub) não são suportados no MVP.
 
 ### Renderização
@@ -104,14 +95,11 @@ preparada se o perfil mudar.
 | ASS/SSA simples | converter para WebVTT (perde estilo) |
 | ASS/SSA com estilos e fontes | renderizador libass no navegador (WASM) com as fontes extraídas |
 
-A biblioteca do renderizador ASS será escolhida na fase 6. O requisito é
-preservar estilos e fontes; se não for viável, o fallback é WebVTT com aviso
-explícito.
+A biblioteca do renderizador ASS será escolhida na fase 6. O requisito é preservar estilos e fontes; se não for viável, o fallback é WebVTT com aviso explícito.
 
 ### Correspondência automática
 
-- Na mesma pasta virtual, procurar arquivos cujo nome-base seja igual ao do
-  vídeo e cuja extensão seja de legenda.
+- Na mesma pasta virtual, procurar arquivos cujo nome-base seja igual ao do vídeo e cuja extensão seja de legenda.
 - Vários idiomas: usar o sufixo (`pt-BR`, `pt`, `en`, `es`).
 - Preferência padrão: português (`pt-BR`, depois `pt`), depois a primeira faixa.
 - A escolha do usuário é lembrada no navegador; não altera o catálogo.
@@ -120,8 +108,7 @@ explícito.
 
 - Remux de MKV H.264/AAC: próximo da velocidade de disco, baixo CPU.
 - Transcode de vídeo: lento; deve ser evitado e avisado.
-- Primeiro play de um MKV grande pode levar alguns segundos; a interface mostra
-  progresso.
+- Primeiro play de um MKV grande pode levar alguns segundos; a interface mostra progresso.
 - Downloads do Telegram podem ser limitados; o cache evita repetição.
 
 ## Falhas e mensagens

@@ -5,8 +5,7 @@
 
 ## Objetivo
 
-Colocar o sistema em uso real: iniciar com o computador, acessar de fora por
-túnel, fazer backup, monitorar e executar o aceite do MVP.
+Colocar o sistema em uso real: iniciar com o computador, acessar de fora por túnel, fazer backup, monitorar e executar o aceite do MVP.
 
 ## Escopo
 
@@ -78,9 +77,7 @@ docs/registros/fase-09.md
 
 ## Critério de saída
 
-O MVP atende a todos os itens de [`ACEITE-MVP.md`](../ACEITE-MVP.md), com acesso
-remoto funcionando, backup testado e operação documentada. A decisão do túnel
-está registrada e justificada.
+O MVP atende a todos os itens de [`ACEITE-MVP.md`](../ACEITE-MVP.md), com acesso remoto funcionando, backup testado e operação documentada. A decisão do túnel está registrada e justificada.
 
 ## Riscos
 

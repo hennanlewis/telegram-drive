@@ -6,10 +6,7 @@ Aceita.
 
 ## Contexto
 
-O acervo é composto principalmente por **MKV H.264 (inclusive NVENC) com áudio
-AAC**. Navegadores não reproduzem MKV nativamente, mas suportam H.264 e AAC.
-Grande parte dos MKV tem legendas ASS embutidas, às vezes com fontes anexadas.
-O player precisa de seek e de escolha de faixa.
+O acervo é composto principalmente por **MKV H.264 (inclusive NVENC) com áudio AAC**. Navegadores não reproduzem MKV nativamente, mas suportam H.264 e AAC. Grande parte dos MKV tem legendas ASS embutidas, às vezes com fontes anexadas. O player precisa de seek e de escolha de faixa.
 
 ## Decisão
 
@@ -17,8 +14,7 @@ O player precisa de seek e de escolha de faixa.
 
 - Proxy próprio com suporte a `Range`, servindo do cache ou do Telegram.
 - Reprodução direta para containers/codecs compatíveis.
-- **Remux** para MKV H.264 + AAC: troca o container para MP4 com `faststart` e
-  `-c copy`. Sem reencode.
+- **Remux** para MKV H.264 + AAC: troca o container para MP4 com `faststart` e `-c copy`. Sem reencode.
 - Transcode de áudio apenas se o codec não for suportado (ex.: AC3/DTS).
 - Transcode de vídeo é último recurso e deve ser avisado.
 - Cache local com limite por tamanho e idade, política LRU.
@@ -29,10 +25,8 @@ O player precisa de seek e de escolha de faixa.
 - Extrair faixas embutidas SRT/ASS para o cache.
 - Extrair fontes anexadas quando houver ASS com estilos.
 - Oferecer faixas no player, com preferência por português.
-- Procurar legenda avulsa na mesma pasta virtual pelo nome-base do vídeo
-  (ex.: `S01E01.pt-BR.srt`).
-- ASS com estilos: renderizador libass no navegador (WASM) com as fontes
-  extraídas; fallback para WebVTT com aviso.
+- Procurar legenda avulsa na mesma pasta virtual pelo nome-base do vídeo (ex.: `S01E01.pt-BR.srt`).
+- ASS com estilos: renderizador libass no navegador (WASM) com as fontes extraídas; fallback para WebVTT com aviso.
 - SRT: converter para WebVTT.
 - Formatos de imagem (PGS/VobSub) ficam fora do MVP.
 
