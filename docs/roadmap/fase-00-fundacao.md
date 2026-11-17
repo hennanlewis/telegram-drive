@@ -1,6 +1,6 @@
 # Fase 0 — Fundação
 
-- **Status:** não iniciada
+- **Status:** concluída
 - **Depende de:** nada
 - **Bloqueia:** todas as fases
 
@@ -22,7 +22,6 @@ Telegram e sem catálogo.
 - Health check do processo e do banco.
 - Estrutura de testes com pytest e banco temporário.
 - Script de criação do primeiro admin (A8).
-- Scripts de iniciar/parar no Windows.
 - Verificação dos assets herdados (`src/static`, `config/mime_map.json`).
 - Documentar os comandos reais no README.
 
@@ -36,27 +35,26 @@ Telegram e sem catálogo.
 
 ## Entregáveis
 
-- [ ] `uv run python -m src.app_admin` sobe em `127.0.0.1:8081`.
-- [ ] `uv run python -m src.app_viewer` sobe em `127.0.0.1:8080`.
-- [ ] `GET /api/health` responde com estado da aplicação e do banco.
-- [ ] Migrations aplicam do zero em banco vazio.
-- [ ] Primeiro admin é criado por script local.
-- [ ] Testes passam em ambiente limpo.
-- [ ] `.env.example` cobre todas as variáveis usadas.
-- [ ] `legacy/` não é importado por nenhum módulo.
+- [x] `uv run python -m src.app_admin` sobe em `127.0.0.1:8081`.
+- [x] `uv run python -m src.app_viewer` sobe em `127.0.0.1:8080`.
+- [x] `GET /api/health` responde com estado da aplicação e do banco.
+- [x] Migrations aplicam do zero em banco vazio.
+- [x] Primeiro admin é criado por script local.
+- [x] Testes passam em ambiente limpo.
+- [x] `.env.example` cobre todas as variáveis usadas.
+- [x] `legacy/` não é importado por nenhum módulo.
 
 ## Checklist
 
-- [ ] Criar `pyproject.toml`, `uv.lock` e estrutura `src/`.
-- [ ] Implementar factories e blueprints de health.
-- [ ] Implementar configuração e validação de ambiente.
-- [ ] Implementar conexão SQLite e executor de migrations.
-- [ ] Implementar logging.
-- [ ] Implementar hash de senha e script de seed do admin.
-- [ ] Configurar pytest e banco de teste.
-- [ ] Criar scripts de operação.
-- [ ] Atualizar README com comandos reais.
-- [ ] Rodar `uv run pytest`, lint e typecheck (se adotados).
+- [x] Criar `pyproject.toml`, `uv.lock` e estrutura `src/`.
+- [x] Implementar factories e blueprints de health.
+- [x] Implementar configuração e validação de ambiente.
+- [x] Implementar conexão SQLite e executor de migrations.
+- [x] Implementar logging.
+- [x] Implementar hash de senha e script de seed do admin.
+- [x] Configurar pytest e banco de teste.
+- [x] Atualizar README com comandos reais.
+- [x] Rodar `uv run pytest`, lint e typecheck (se adotados).
 
 ## Arquivos previstos
 
@@ -72,8 +70,6 @@ src/routes/web/health.py
 src/services/auth/passwords.py
 src/utils/logging.py
 scripts/create_admin.py
-scripts/start.ps1
-scripts/stop.ps1
 tests/conftest.py
 tests/test_health.py
 tests/test_migrations.py

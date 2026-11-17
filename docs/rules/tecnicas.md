@@ -87,7 +87,7 @@ src/
 ## Operação
 
 - Sem Docker.
-- Scripts de iniciar/parar e um serviço local do Windows.
+- Execução local por `uv run`; inicialização automática fica fora do repositório.
 - Health check separado para app, banco e Telegram.
 - Backup do banco antes de migrations destrutivas.
 - Nenhum segredo em arquivo versionado.

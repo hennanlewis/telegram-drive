@@ -13,14 +13,13 @@ operacional) e remova o item daqui.
 | A5 | Política padrão para duplicados | 8 | Perguntar sempre; nunca sobrescrever |
 | A6 | Tratamento de HEVC | 5 | Transcodificar sob demanda com aviso; se inviável, recusar com explicação |
 | A7 | Retenção de backup do banco | 9 | 7 diários + 4 semanais |
-| A8 | Como criar o primeiro admin | 0 | Script de linha de comando, senha digitada na hora |
 | A9 | Idioma padrão de legenda | 6 | `pt-BR`, depois `pt`, depois a primeira faixa |
 | A10 | Comportamento com Telegram offline | 9 | Catálogo em somente leitura; player informa indisponibilidade |
 | A11 | Ordem de pastas e arquivos | 3 | Pastas primeiro, depois arquivos; nome ascendente |
 | A12 | Nome definitivo do projeto/repositório | antes do GitHub | “Telegram Drive” é provisório |
 | A13 | Retenção de logs | 9 | 30 dias, rotação por tamanho |
 | A14 | Limite de concorrência de downloads | 5 | 1 por arquivo; 2 no total |
-| A15 | Expiração da sessão do viewer | 0 | 60 minutos de inatividade |
+| A16 | Destino do painel administrativo herdado (`admin.html`, `admin.js`, `routes/web/admin.py`) | 2 | Portar apenas o fluxo necessário ao diagnóstico; decidir se a UI completa entra no MVP antes de remover `legacy/` |
 
 ## Regras
 
