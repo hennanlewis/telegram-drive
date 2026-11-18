@@ -1,6 +1,6 @@
 # Fase 1 — Modelo de dados e catálogo
 
-- **Status:** não iniciada
+- **Status:** concluída
 - **Depende de:** fase 0
 
 ## Objetivo
@@ -29,41 +29,46 @@ Criar o schema do catálogo, as migrations e as regras puras de pastas, arquivos
 
 ## Entregáveis
 
-- [ ] Migrations criam todas as tabelas do zero.
-- [ ] Unicidade de nome por pasta é garantida pelo banco.
-- [ ] Caminho e breadcrumb são calculados corretamente.
-- [ ] Manifesto serializa e parseia com teste de ida e volta.
-- [ ] Manifesto inválido não derruba a aplicação.
-- [ ] Raiz e Inbox existem após a migration inicial.
-- [ ] Mover pasta para descendente é bloqueado.
-- [ ] Excluir pasta com conteúdo é bloqueado.
-- [ ] Lixeira guarda a pasta de origem.
+- [x] Migrations criam todas as tabelas do zero.
+- [x] Unicidade de nome por pasta é garantida pelo banco.
+- [x] Caminho e breadcrumb são calculados corretamente.
+- [x] Manifesto serializa e parseia com teste de ida e volta.
+- [x] Manifesto inválido não derruba a aplicação.
+- [x] Raiz e Inbox existem após a migration inicial.
+- [x] Mover pasta para descendente é bloqueado.
+- [x] Excluir pasta com conteúdo é bloqueado.
+- [x] Lixeira guarda a pasta de origem.
 
 ## Checklist
 
-- [ ] Escrever migrations SQL.
-- [ ] Implementar repositórios.
-- [ ] Implementar serviços de catálogo.
-- [ ] Implementar manifesto.
-- [ ] Implementar auditoria.
-- [ ] Criar fixtures de teste.
-- [ ] Testar constraints diretamente no banco.
+- [x] Escrever migrations SQL.
+- [x] Implementar repositórios.
+- [x] Implementar serviços de catálogo.
+- [x] Implementar manifesto.
+- [x] Implementar auditoria.
+- [x] Criar fixtures de teste.
+- [x] Testar constraints diretamente no banco.
 
 ## Arquivos previstos
 
 ```text
 migrations/0001_catalog.sql
 src/db/schema.py
+src/repositories/settings.py
 src/repositories/folders.py
 src/repositories/files.py
 src/repositories/activity.py
+src/services/catalog/errors.py
 src/services/catalog/folders.py
 src/services/catalog/files.py
 src/services/catalog/manifest.py
 src/services/catalog/paths.py
-tests/db/test_migrations.py
+src/utils/time.py
+tests/test_migrations.py
+tests/db/test_catalog_schema.py
 tests/services/test_catalog.py
 tests/services/test_manifest.py
+tests/services/test_paths.py
 ```
 
 ## Testes
@@ -83,6 +88,6 @@ O catálogo funciona sem Telegram: é possível criar, listar, mover, renomear, 
 
 ## Riscos
 
-- SQLite e `COLLATE NOCASE`: validar comportamento em nomes com acento.
+- SQLite e `COLLATE NOCASE`: mitigado por `name_key` (NFC + casefold) e testes com acentos e formas Unicode, conforme [ADR-009](../decisoes/ADR-009-unicidade-de-nomes-unicode.md).
 - Caminho recursivo pode ficar caro; medir com profundidade realista.
-- Manifesto de 1024 caracteres: validar com caminhos longos.
+- Manifesto de 1024 caracteres: validado com caminhos longos nos testes.

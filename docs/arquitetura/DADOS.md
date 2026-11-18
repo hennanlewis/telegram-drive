@@ -28,8 +28,9 @@ Configuração persistida que não é segredo.
 
 Árvore virtual.
 
-- `id`, `parent_id` (nulo na raiz), `name`, `created_at`, `updated_at`.
-- Único por `(parent_id, name)`, sem diferenciar maiúsculas/minúsculas.
+- `id`, `parent_id` (nulo na raiz), `name`, `name_key`, `created_at`, `updated_at`.
+- Único por `(parent_id, name_key)`, sem diferenciar maiúsculas/minúsculas nem formas Unicode.
+- `name_key` é interno: NFC + casefold, conforme [ADR-009](../decisoes/ADR-009-unicidade-de-nomes-unicode.md).
 - O caminho é calculado por CTE recursiva; não é armazenado como verdade.
 - Não existe pasta física correspondente no disco.
 
@@ -37,12 +38,12 @@ Configuração persistida que não é segredo.
 
 Arquivo lógico.
 
-- `id`, `folder_id`, `name`, `mime`, `size_bytes`, `sha256`.
+- `id`, `folder_id`, `name`, `name_key`, `mime`, `size_bytes`, `sha256`.
 - `status`: `active`, `trashed`, `missing`.
 - `trashed_from_folder_id`, `trashed_at`.
 - `version`, `is_current` (versionamento adiado; campos já previstos).
 - `created_at`, `updated_at`, `manifest_synced_at`.
-- Único por `(folder_id, name, version)`.
+- Único por `(folder_id, name_key, version)` enquanto o arquivo não está na lixeira; a lixeira libera o nome para um substituto.
 
 ### `telegram_refs`
 
@@ -71,13 +72,14 @@ Faixas de legenda conhecidas.
 
 Auditoria simples de operações relevantes.
 
-- `id`, `action`, `file_id`, `detail`, `created_at`.
+- `id`, `action`, `file_id`, `folder_id`, `detail`, `result`, `created_at`.
 - Ações: `ingest`, `move`, `rename`, `trash`, `restore`, `delete`, `manifest`, `duplicate`.
+- `result` distingue `ok` de `error`; o detalhe guarda o contexto sem conteúdo de arquivo.
 - Não guarda conteúdo de arquivo nem segredo.
 
 ### `scan_state`
 
-- `id` (sempre 1), `last_message_id`, `last_scan_at`, `last_error`.
+- `id` (sempre 1), `last_message_id`, `last_scan_at`, `last_error`, `updated_at`.
 
 ## Manifesto `FD1`
 
@@ -130,7 +132,7 @@ Regras:
 
 - Pasta virtual reservada, criada na primeira execução.
 - Destino de todo arquivo descoberto sem manifesto.
-- Não pode ser excluída nem renomeada enquanto contiver arquivos.
+- Não pode ser renomeada nem excluída; a proteção é permanente, como a da raiz.
 - Organizar um arquivo remove-o do Inbox.
 
 ## Lixeira

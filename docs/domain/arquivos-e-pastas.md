@@ -13,7 +13,7 @@
 
 - Pasta reservada “Para organizar”.
 - Recebe todo arquivo descoberto sem manifesto válido.
-- Não pode ser renomeada nem excluída enquanto tiver conteúdo.
+- Não pode ser renomeada nem excluída; a proteção é permanente.
 - Organizar um arquivo remove-o do Inbox.
 - A interface mostra um contador de pendências.
 

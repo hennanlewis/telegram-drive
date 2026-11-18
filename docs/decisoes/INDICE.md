@@ -21,6 +21,7 @@
 | D17 | Manifesto na legenda do arquivo | [ADR-003](ADR-003-catalogo-e-manifesto.md) | aceita |
 | D18 | Legendas no player: embutidas e avulsas | [ADR-005](ADR-005-streaming-e-midia.md) | aceita |
 | D19 | Reaproveitar o visual e os assets do projeto anterior | [ADR-008](ADR-008-reaproveitamento-e-interface.md) | aceita |
+| D20 | Unicidade de nomes com Unicode via `name_key` (NFC + casefold) | [ADR-009](ADR-009-unicidade-de-nomes-unicode.md) | aceita |
 
 ## Como ler
 

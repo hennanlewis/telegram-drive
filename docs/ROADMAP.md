@@ -15,7 +15,7 @@ Legenda: `não iniciada` · `em andamento` · `bloqueada` · `concluída`
 | Fase | Objetivo | Status | Detalhe |
 |---|---|---|---|
 | 0 | Fundação, ambiente, testes e decisões operacionais | concluída | [fase-00](roadmap/fase-00-fundacao.md) |
-| 1 | Modelo de dados, catálogo e migrations | não iniciada | [fase-01](roadmap/fase-01-modelo-de-dados.md) |
+| 1 | Modelo de dados, catálogo e migrations | concluída | [fase-01](roadmap/fase-01-modelo-de-dados.md) |
 | 2 | Integração com o Telegram: conta, canal, varredura e leitura | não iniciada | [fase-02](roadmap/fase-02-integracao-telegram.md) |
 | 3 | Navegação e listagem de pastas virtuais | não iniciada | [fase-03](roadmap/fase-03-navegacao-e-listagem.md) |
 | 4 | Preview de imagem, PDF e texto; download | não iniciada | [fase-04](roadmap/fase-04-preview-e-download.md) |
@@ -27,7 +27,7 @@ Legenda: `não iniciada` · `em andamento` · `bloqueada` · `concluída`
 
 ## Progresso atual
 
-**Fase 0 concluída.** A fundação está executável e testada: dois processos, banco com migrations, health check e admin inicial. A próxima ação é iniciar a [Fase 1 — Modelo de dados](roadmap/fase-01-modelo-de-dados.md).
+**Fase 1 concluída.** O catálogo funciona sem Telegram: schema completo, constraints, raiz e Inbox, caminhos por CTE, manifesto `FD1`, lixeira e auditoria, com testes de serviço e de banco. A próxima ação é iniciar a [Fase 2 — Integração com o Telegram](roadmap/fase-02-integracao-telegram.md).
 
 ## Dependências
 

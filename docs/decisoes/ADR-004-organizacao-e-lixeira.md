@@ -15,7 +15,7 @@ O Telegram é append-only para o usuário: apagar é definitivo e não há lixei
 - Pastas, nomes e posição vivem apenas no catálogo.
 - Mover e renomear são operações locais; a legenda é atualizada depois.
 - Todo arquivo descoberto sem manifesto entra no **Inbox** (“Para organizar”).
-- O Inbox não pode ser excluído enquanto tiver conteúdo.
+- O Inbox não pode ser renomeado nem excluído; a proteção é permanente.
 
 ### Lixeira
 
