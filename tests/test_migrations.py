@@ -28,8 +28,41 @@ def test_migrations_create_foundation_tables_from_empty_database(
 
     applied = apply_migrations(database_path)
 
-    assert applied == ["0000_foundation"]
-    assert {"users", "settings", "schema_migrations"} <= table_names(database_path)
+    assert applied == ["0000_foundation", "0001_catalog"]
+    assert {
+        "users",
+        "settings",
+        "folders",
+        "files",
+        "telegram_refs",
+        "subtitles",
+        "favorites",
+        "activity",
+        "scan_state",
+        "schema_migrations",
+    } <= table_names(database_path)
+
+
+def test_migrations_create_root_and_inbox(database_path: Path) -> None:
+    with connect(database_path) as connection:
+        root = connection.execute(
+            "SELECT id, name, parent_id FROM folders WHERE parent_id IS NULL"
+        ).fetchone()
+        inbox = connection.execute(
+            "SELECT id, name, parent_id FROM folders WHERE name_key = 'para organizar'"
+        ).fetchone()
+        settings = {
+            row["key"]: row["value"]
+            for row in connection.execute("SELECT key, value FROM settings").fetchall()
+        }
+
+    assert root is not None
+    assert root["name"] == "Raiz"
+    assert inbox is not None
+    assert inbox["parent_id"] == root["id"]
+    assert inbox["name"] == "Para organizar"
+    assert settings["root_folder_id"] == str(root["id"])
+    assert settings["inbox_folder_id"] == str(inbox["id"])
 
 
 def test_migrations_are_idempotent(database_path: Path) -> None:
@@ -37,7 +70,7 @@ def test_migrations_are_idempotent(database_path: Path) -> None:
 
     assert applied_again == []
     with connect(database_path) as connection:
-        assert applied_versions(connection) == ["0000_foundation"]
+        assert applied_versions(connection) == ["0000_foundation", "0001_catalog"]
 
 
 def test_users_are_unique_case_insensitively(database_path: Path) -> None:
