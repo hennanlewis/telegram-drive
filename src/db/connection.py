@@ -29,6 +29,18 @@ def connect(database_path: Path) -> Iterator[sqlite3.Connection]:
         connection.close()
 
 
+@contextmanager
+def transaction(connection: sqlite3.Connection) -> Iterator[sqlite3.Connection]:
+    """Executa um bloco em uma transação curta de escrita."""
+    connection.execute("BEGIN IMMEDIATE")
+    try:
+        yield connection
+    except BaseException:
+        connection.execute("ROLLBACK")
+        raise
+    connection.execute("COMMIT")
+
+
 def database_is_available(database_path: Path) -> bool:
     """Verifica se o banco responde sem expor detalhes do erro."""
     try:
